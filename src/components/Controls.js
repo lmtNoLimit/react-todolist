@@ -1,29 +1,44 @@
 import React, { Component } from 'react';
 import SearchBox from './SearchBox';
 import SortBy from './SortBy';
-import FormController from './FormController';
 import { Row, Col, Button } from 'reactstrap';
 
 class Controls extends Component {
+  renderButton = () => {
+    if(this.props.isOpen) {
+      return (
+        <Button 
+          color="danger" 
+          style={{width: "100%"}} 
+          onClick={this.props.openForm}              
+        >
+          Cancel 
+        </Button>
+      )
+    }
+    return (
+      <Button 
+        color="info" 
+        style={{width: "100%"}} 
+        onClick={this.props.openForm}
+      >
+        Add task
+      </Button>
+    )
+  }
   render() {
     return (
       <div>
         <Row>
           <Col md="3">
-            <SearchBox />
+            <SearchBox onSearch={this.props.onSearch} />
           </Col>
           <Col md="3">
             <SortBy />
           </Col>
           <Col md="6">
-            <Button color="info" style={{width: "100%"}}>Add task</Button>
+            {this.renderButton()}
           </Col>
-        </Row>
-        <Row>
-          <Col sm="6"></Col>
-          <Col sm="6">
-            <FormController />
-          </Col>        
         </Row>
       </div>
     );

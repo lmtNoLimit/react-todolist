@@ -1,7 +1,29 @@
+const uuidv4 = require('uuid/v4');
 let todos = [
-  {id: 1, task: 'lorem ipsumi uouoi uoiuoiuoi uoiuiou oiuiouo iuo yuoiuy oiuyo iuyo iuyoi uyoi uyo iyoiuy oiuy', level: "high"}, 
-  {id: 2, task: 'lorem ipsum', level: "medium"},
-  {id: 3, task: 'lorem ipsum', level: "medium"},
+  {
+    id: uuidv4(), 
+    task: 'get some money', 
+    level: "high"
+  }, 
+  {
+    id: uuidv4(), 
+    task: 'buy some food', 
+    level: "low"},
+  {
+    id: uuidv4(), 
+    task: 'playing games', 
+    level: "medium"
+  },
+  {
+    id: uuidv4(), 
+    task: 'buy some drink', 
+    level: "high"
+  },
+  {
+    id: uuidv4(), 
+    task: 'buysome drink', 
+    level: "high"
+  },
 ]
 
 export default todos;
