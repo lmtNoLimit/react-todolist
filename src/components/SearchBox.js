@@ -14,7 +14,7 @@ class SearchBox extends Component {
   changeInput = e => {
     this.setState({
       searchString: e.target.value
-    })
+    });
   }
 
   render() {

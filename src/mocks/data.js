@@ -16,12 +16,12 @@ let todos = [
   },
   {
     id: uuidv4(), 
-    task: 'buy some drink', 
+    task: 'buy some drink',
     level: "high"
   },
   {
     id: uuidv4(), 
-    task: 'buysome drink', 
+    task: 'buy some drink', 
     level: "high"
   },
 ]

@@ -27,11 +27,12 @@ class Controls extends Component {
     )
   }
   render() {
+    const { onSearch } = this.props;
     return (
       <div>
         <Row>
           <Col md="3">
-            <SearchBox onSearch={this.props.onSearch} />
+            <SearchBox onSearch={onSearch} />
           </Col>
           <Col md="3">
             <SortBy />

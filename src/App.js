@@ -12,7 +12,6 @@ class App extends Component {
     this.state = {
       items: todos,
       isOpen: false,
-      searchString: ''
     }
   }
   toggle = () => {
@@ -26,19 +25,36 @@ class App extends Component {
     }
     return;
   }
-  handleSearch = (value) => {
+
+  handleSearch = value => {
     this.setState({
       items: todos.filter(item => item.task.toLowerCase().indexOf(value.trim()) !== -1)
     });
   }
+  
+  handleDelete = id => {
+    const { items } = this.state;
+    console.log(id);
+    this.setState({
+      items: items.filter(item => item.id !== id)
+    });
+  }
+  
   render() {
     const { items } = this.state;
     return (
       <Container>
         <PageHeader />
-        <Controls openForm={this.toggle} isOpen={this.state.isOpen} onSearch={this.handleSearch}/>
+        <Controls 
+          openForm={this.toggle} 
+          isOpen={this.state.isOpen} 
+          onSearch={this.handleSearch}
+        />
         {this.renderForm()}
-        <TodoTable items={items} />
+        <TodoTable 
+          items={items} 
+          onDelete={this.handleDelete}
+        />
       </Container>
     );
   }

@@ -9,6 +9,9 @@ class ListItem extends Component {
     }
     return 'success';  
   }
+  handleDelete = id => {
+    this.props.onDelete(id)
+  }
   render() {
     const { items } = this.props;
     return (
@@ -20,7 +23,7 @@ class ListItem extends Component {
             <td><Badge color={this.getBadgeColor(item.level)}>{item.level}</Badge></td>
             <td className="text-center">
               <Button color="warning" size="sm">Edit</Button>
-              <Button color="danger" size="sm" className="ml-2">Delete</Button>
+              <Button onClick={() => this.handleDelete(item.id)} color="danger" size="sm" className="ml-2">Delete</Button>
             </td>
           </tr>
         ))}

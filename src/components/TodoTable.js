@@ -4,7 +4,7 @@ import ListItem from './ListItem';
 
 class TodoTable extends Component {
   render() {
-    const { items } = this.props;
+    const { items, onDelete } = this.props;
     return (
       <div>
         <Table className="mt-5" hover responsive>
@@ -17,7 +17,7 @@ class TodoTable extends Component {
             </tr>
           </thead>
           <tbody>
-            <ListItem items={items}/>
+            <ListItem onDelete={onDelete} items={items}/>
           </tbody>
         </Table>
       </div>
