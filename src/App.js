@@ -3,7 +3,7 @@ import PageHeader from './components/PageHeader';
 import Controls from './components/Controls';
 import TodoTable from './components/TodoTable';
 import { Container } from 'reactstrap';
-import todos from './mocks/data';
+// import todos from './mocks/data';
 import FormController from './components/FormController';
 import uuidv4 from 'uuid/v4';
 
@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: todos,
+      items: [],
       isOpen: false,
     }
   }
@@ -29,7 +29,8 @@ class App extends Component {
     });
     this.setState({
       items: items
-    })
+    });
+    localStorage.setItem("todos", JSON.stringify(this.state.items));
   }
   renderForm = () => {
     if(this.state.isOpen) {
@@ -39,8 +40,9 @@ class App extends Component {
   }
 
   handleSearch = value => {
+    let data = JSON.parse(localStorage.getItem("todos"))
     this.setState({
-      items: todos.filter(item => item.task.toLowerCase().indexOf(value.trim()) !== -1)
+      items: data.filter(item => item.task.toLowerCase().indexOf(value.trim()) !== -1)
     });
   }
   
@@ -51,6 +53,14 @@ class App extends Component {
       items: items.filter(item => item.id !== id)
     });
   }
+  
+  componentWillMount() {    
+    let items = JSON.parse(localStorage.getItem("todos"))
+    this.setState({
+      items: items
+    })
+  }
+  
   
   render() {
     const { items } = this.state;

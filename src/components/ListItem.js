@@ -22,7 +22,6 @@ class ListItem extends Component {
             <td>{item.task}</td>
             <td><Badge color={this.getBadgeColor(item.level)}>{item.level}</Badge></td>
             <td className="text-center">
-              <Button color="warning" size="sm">Edit</Button>
               <Button onClick={() => this.handleDelete(item.id)} color="danger" size="sm" className="ml-2">Delete</Button>
             </td>
           </tr>
