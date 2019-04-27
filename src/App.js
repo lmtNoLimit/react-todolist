@@ -5,6 +5,7 @@ import TodoTable from './components/TodoTable';
 import { Container } from 'reactstrap';
 import todos from './mocks/data';
 import FormController from './components/FormController';
+import uuidv4 from 'uuid/v4';
 
 class App extends Component {
   constructor(props) {
@@ -19,9 +20,20 @@ class App extends Component {
       isOpen: !this.state.isOpen
     });
   }
+  handleSubmit = item => {
+    let {items} = this.state;
+    items.push({
+      id: uuidv4(),
+      task: item.task,
+      level: item.level
+    });
+    this.setState({
+      items: items
+    })
+  }
   renderForm = () => {
     if(this.state.isOpen) {
-      return <FormController />;
+      return <FormController onClickSubmit={this.handleSubmit}/>;
     }
     return;
   }
