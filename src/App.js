@@ -3,7 +3,6 @@ import PageHeader from './components/PageHeader';
 import Controls from './components/Controls';
 import TodoTable from './components/TodoTable';
 import { Container } from 'reactstrap';
-// import todos from './mocks/data';
 import FormController from './components/FormController';
 import uuidv4 from 'uuid/v4';
 
